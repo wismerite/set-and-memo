@@ -17,7 +17,7 @@ def find_longest_word_with_set(word_list: list) -> Union[str, list]:
             longest_words.append(word)
 
     if longest_words == "":
-        raise Exception("word list has no words with non-repeating characters")
+        raise Exception("word list has no words without repeating characters")
     elif len(longest_words) == 1:
         return longest_words[0]
     else:

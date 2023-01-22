@@ -1,11 +1,12 @@
 import mocks
-from set_or_memo import set_compare
+import pytest
+from set_or_memo import find_longest_word
 
 
 def test_set_compare_one_solution():
     assert (
-        set_compare.find_longest_word_with_set(
-            word_list=mocks.mock_one_solution_word_list
+        find_longest_word.find_longest_word(
+            word_list=mocks.mock_one_solution_word_list, compare_type="set"
         )
         == mocks.mock_one_solution_correct_answer
     )
@@ -13,8 +14,15 @@ def test_set_compare_one_solution():
 
 def test_set_compare_multiple_solutions():
     assert (
-        set_compare.find_longest_word_with_set(
-            word_list=mocks.mock_multiple_solutions_word_list
+        find_longest_word.find_longest_word(
+            word_list=mocks.mock_multiple_solutions_word_list, compare_type="set"
         )
         == mocks.mock_multiple_solutions_correct_answer
     )
+
+
+def test_set_compare_no_solutions():
+    with pytest.raises(Exception):
+        find_longest_word.find_longest_word(
+            word_list=mocks.mock_no_solutions_word_list, compare_type="set"
+        )
