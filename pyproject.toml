@@ -1,0 +1,11 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "set_or_memo"
+version = "0.0.1"
+dependencies = []
+
+[tool.pytest.ini_options]
+pythonpath = "src"

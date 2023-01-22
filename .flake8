@@ -1,0 +1,7 @@
+# flake8 is a python linter
+# it needs to run after black, a python formatter
+# see tox.ini
+[flake8]
+max-line-length = 88
+select = C,E,F,W,B,B950
+extend-ignore = E203, E501
