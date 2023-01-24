@@ -8,7 +8,7 @@ def find_longest_word(word_list: list, compare_type: str) -> Union[str, list]:
         raise Exception(f"invalid compare type requested: {compare_type}")
     check_for_repeating_chars = {
         "set": lambda word: len(word) > len(set(word)),
-        "memo": has_repeating_characters,
+        "memo": _has_repeating_characters,
     }
 
     for word in word_list:
@@ -31,13 +31,10 @@ def find_longest_word(word_list: list, compare_type: str) -> Union[str, list]:
         return longest_words
 
 
-def has_repeating_characters(word: str) -> bool:
-    word = sorted(word)
-    memo = {word.pop(): 1}
-    for i in range(1, len(word)):
+def _has_repeating_characters(word: str) -> bool:
+    word = list(word)
+    while len(word) > 0:
         char = word.pop()
-        if char in memo:
+        if char in word:
             return True
-        else:
-            memo[char] = 1
     return False
