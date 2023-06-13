@@ -22,7 +22,6 @@ def test_memo_compare_multiple_solutions():
 
 
 def test_memo_compare_no_solutions():
-
     with pytest.raises(Exception):
         find_longest_word.find_longest_word(
             word_list=mocks.mock_no_solutions_word_list, compare_type="memo"
